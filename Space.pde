@@ -15,12 +15,15 @@ class Space extends World {
   }
   void prepare(){
     Player player = new Player();
-    StatBar health = new StatBar(0,0,1);
     Boss boss = new Boss();
+    
+    StatBar health = new StatBar(0,0,1);
+    StatBar bossHealth = new StatBar(width-200,0,2);
 
 
     this.addObject(player);
     this.addObject(health);
+    this.addObject(bossHealth);
     this.addObject(boss);
   }
 }

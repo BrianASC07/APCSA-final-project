@@ -20,7 +20,6 @@ class Start extends World {
       if(mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
        println("The mouse is pressed and over the button");
        fill(0);
-       //do stuff 
   
       }
     }

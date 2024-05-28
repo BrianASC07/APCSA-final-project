@@ -18,6 +18,11 @@ class StatBar extends Entities {
       stat = player.getHealth();
       statName = "Health";
     }
+    if (statCode == 2) {
+      Boss boss = world.getObjects(Boss.class).get(0);
+      stat = boss.getHealth();
+      statName = "Boss Health";
+    }
   }
   
   void draw(){
@@ -28,7 +33,7 @@ class StatBar extends Entities {
     rect(0,0,stat * 2,40);
     textSize(30);
     fill(255);
-    text(statName, 50, 30); 
+    text(statName, 40, 30); 
   }
 
 }

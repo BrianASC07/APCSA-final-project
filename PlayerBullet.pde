@@ -2,6 +2,7 @@ import Green.*;
 import java.util.*;
 
 class PlayerBullet extends Entities {
+  
   Boss boss = world.getObjects(Boss.class).get(0);
 
   PlayerBullet(float x, float y){
@@ -13,8 +14,12 @@ class PlayerBullet extends Entities {
   }
   
   void move() { 
-    if (getY() <= 0 || this.intersects(boss)) {
+    if (getY() <= 0) {
       world.removeObject(this);
+    }
+    if (this.intersects(boss)) {
+        world.removeObject(this);
+        boss.applyDamage(1);
     }
     moveGlobal(0, -4);
   }
@@ -25,5 +30,4 @@ class PlayerBullet extends Entities {
   void applyDamage(int damage){
     health -= damage;
   }
-
 }

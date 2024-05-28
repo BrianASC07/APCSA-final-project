@@ -3,18 +3,18 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 class Player extends Entities {
-  int health = 100;
   int speed = 0;
   int timer = millis();
   int attackSpeed = 0;
 
   Player(){
-    super(width/2, height/2, loadImage("ship.png"), 0.15);
+    super(width/2, height/2, loadImage("ship.png"), 0.15, 100);
   }
   
   void act (float a) {
     shoot();
     move();
+    System.out.println(getHealth());
   }
   
   void move() { // moves the character using wasd
@@ -40,12 +40,5 @@ class Player extends Entities {
     }
   }
   
-  
-  int getHealth(){
-    return health;
-  }
-  void applyDamage(int damage){
-    health -= damage;
-  }
 
 }

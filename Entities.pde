@@ -2,21 +2,31 @@ import Green.*;
 import java.util.*;
 
 class Entities extends Actor {
-  int health;
-  int velocity;
+  int health = 0;
 
-  Entities(float x, float y, PImage image){
+  Entities(float x, float y, PImage image, int hp){
     super(x, y, image);
+    health = hp;
   }
-  Entities(int x, int y, PImage image){
+  Entities(int x, int y, PImage image, int hp){
     super(x, y, image);
+    health = hp;
+  }
+  Entities(float x, float y, PImage image, float resizer, int hp){
+    super(x, y, image, resizer);
+    health = hp;
   }
   Entities(float x, float y, PImage image, float resizer){
     super(x, y, image, resizer);
   }
+  Entities(int x, int y, int w, int h, int hp){
+    super(x, y, w, h);
+    health = hp;
+  }
   Entities(int x, int y, int w, int h){
     super(x, y, w, h);
   }
+  
   void act (float a) {
   }
   
