@@ -11,10 +11,16 @@ class Space extends World {
 
   }
   void draw(){
-  
+    
   }
   void prepare(){
     Player player = new Player();
+    StatBar health = new StatBar(0,0,1);
+    Boss boss = new Boss();
+
+
     this.addObject(player);
+    this.addObject(health);
+    this.addObject(boss);
   }
 }

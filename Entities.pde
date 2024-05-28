@@ -11,8 +11,11 @@ class Entities extends Actor {
   Entities(int x, int y, PImage image){
     super(x, y, image);
   }
-  Entities(int x, int y, PImage image, float resizer){
+  Entities(float x, float y, PImage image, float resizer){
     super(x, y, image, resizer);
+  }
+  Entities(int x, int y, int w, int h){
+    super(x, y, w, h);
   }
   void act (float a) {
   }
