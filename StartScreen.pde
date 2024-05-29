@@ -18,7 +18,7 @@ class Start extends World {
   void draw(){
     if(mousePressed){
       if(mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
-       println("The mouse is pressed and over the button");
+       println("test");
        fill(0);
   
       }

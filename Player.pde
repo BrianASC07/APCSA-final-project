@@ -38,6 +38,4 @@ class Player extends Entities {
       world.addObject(bullet);
     }
   }
-  
-
 }
