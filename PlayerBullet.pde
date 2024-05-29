@@ -23,9 +23,6 @@ class PlayerBullet extends Entities {
     }
     moveGlobal(0, -4);
   }
-  int getDamage() {
-    return 5;
-  }
 
   void applyDamage(int damage){
     health -= damage;
