@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 class Player extends Entities {
   int speed = 0;
   int shield = 0;
-  int timer = millis();
+  int timer = second();
 
   Player(){
     super(width/2, height/2, loadImage("ship.png"), 0.15, 100);

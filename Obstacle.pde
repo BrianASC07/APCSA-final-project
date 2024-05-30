@@ -5,7 +5,7 @@ class Obstacle extends Actor {
   int damage;
 
   Obstacle(float x, float y, int dmg){
-    super(x, y, loadImage("ship.png"), 0.15);
+    super(x, y, loadImage("enemybullet.png"), 0.75);
     damage = dmg;
   }
   
