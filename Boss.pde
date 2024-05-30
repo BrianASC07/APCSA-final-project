@@ -41,10 +41,6 @@ class Boss extends Entities {
       world.addObject(bullet2);
       world.addObject(bullet3);
       world.addObject(bullet4);
-
     }
-  
   }
-  
-  
 }

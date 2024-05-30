@@ -12,6 +12,8 @@ void setup() {
   green = new Green(this);
   start = new Start(width, height);
   world = new Space(width, height);
+  start = new Start(width, height);
+
   green.loadWorld(world);
 }
 

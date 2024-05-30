@@ -13,9 +13,12 @@ class Start extends World {
     super(w, h, 255);
   }
   void act(float a){
-
+    fill(0);
+    rect(width/2,height/2,w,h);
   }
   void draw(){
+    fill(0);
+    rect(width/2,height/2,w,h);
     if(mousePressed){
       if(mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
        println("test");
@@ -24,8 +27,8 @@ class Start extends World {
       }
     }
   }
-  void prepare(){
-    rect(width/2,height/2,w,h);
+  void prepare(){ //equivalent to setup()
     fill(0);
+    rect(width/2,height/2,w,h);
   }
 }
