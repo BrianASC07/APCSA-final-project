@@ -13,22 +13,13 @@ class Start extends World {
     super(w, h, 255);
   }
   void act(float a){
-    fill(0);
-    rect(width/2,height/2,w,h);
+
   }
   void draw(){
-    fill(0);
-    rect(width/2,height/2,w,h);
-    if(mousePressed){
-      if(mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
-       println("test");
-       fill(0);
-  
-      }
-    }
+
   }
   void prepare(){ //equivalent to setup()
-    fill(0);
-    rect(width/2,height/2,w,h);
+    Button start = new Button(width/2, height/2, 300,300);
+    this.addObject(start);
   }
 }

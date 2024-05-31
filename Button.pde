@@ -11,17 +11,15 @@ class Button extends Actor {
   }
   
   void act(float a){
-    fill(0);
-    rect(width/2,height/2,w,h);
+
   }
   void draw(){
-    fill(0);
+    fill(45);
     rect(width/2,height/2,getWidth(), getHeight());
     if(mousePressed){
-      if(mouseX > getX() && mouseX <  getX()+w && mouseY > y && mouseY < y+h){
+      if(mouseX > getX() && mouseX <  getX()+getWidth() && mouseY > getY() && mouseY < getY() + getHeight()){
        println("test");
        fill(0);
-  
       }
     }
   }
