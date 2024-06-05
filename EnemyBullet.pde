@@ -26,7 +26,6 @@ class EnemyBullet extends Obstacle {
       move();
     }
     handleDamage();
-
   }
   
   void move(float x, float y) { //move by changing the location using x and y

@@ -37,7 +37,9 @@ class Boss extends Entities {
     if (millis() / 300 % 10 != milliTimer) {
       milliTimer = millis() / 300 % 10;
       int x = int(random(width));
-      EnemyBullet bullet = new EnemyBullet(x, 1, 1);
+      float xDir = random(getX() - 50, getX() + 50);
+      float yDir = random(getY() - 50, getY() + 50);
+      EnemyBullet bullet = new EnemyBullet(x, 1, xDir, yDir, 1);
       world.addObject(bullet);
 
     }
@@ -48,8 +50,8 @@ class Boss extends Entities {
       
       int xSpawn = int(random(width));
       int ySpawn = int(random(height));
-      float xDir = random(width/2 - 50, width/2 + 50);
-      float yDir = random(height/2 - 50, height/2 + 50);
+      float xDir = random(width/2 - 100, width/2 + 100);
+      float yDir = random(height/2 - 100, height/2 + 100);
       
       
       EnemyBullet bullet1 = new EnemyBullet(xSpawn, 1, xDir, yDir, 1);
