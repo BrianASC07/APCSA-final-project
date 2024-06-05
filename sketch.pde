@@ -14,7 +14,7 @@ void setup() {
   world = new Space(width, height);
   start = new Start(width, height);
 
-  green.loadWorld(start);
+  green.loadWorld(world);
 }
 
 void draw() {
@@ -29,4 +29,10 @@ void keyPressed() {
 }
 void keyReleased() {
   green.handleKeyUp(key, keyCode);
+}
+void mousePressed() {
+  green.handleMouseDown(mouseButton);
+}
+void mouseReleased() {
+  green.handleMouseUp(mouseButton);
 }

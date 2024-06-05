@@ -19,11 +19,20 @@ class Space extends World {
     
     StatBar health = new StatBar(0,0,1);
     StatBar bossHealth = new StatBar(width-200,0,2);
+    StatBar skill1Timer = new StatBar(0,50,3);
+    StatBar skill2Timer = new StatBar(0,100,4);
+
+
 
 
     this.addObject(player);
+    this.addObject(boss);
+
     this.addObject(health);
     this.addObject(bossHealth);
-    this.addObject(boss);
+    this.addObject(skill1Timer);
+    this.addObject(skill2Timer);
+
+
   }
 }

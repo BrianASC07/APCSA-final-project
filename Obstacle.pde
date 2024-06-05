@@ -10,12 +10,8 @@ class Obstacle extends Actor {
   }
   
   void act (float a) {
-    move();
   }
   
-  void move() { 
-
-  }
   int getDamage() {
     return damage;
   }

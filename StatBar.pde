@@ -3,7 +3,7 @@ import java.util.*;
 
 class StatBar extends Entities {
   Green green;
-  int stat;
+  float stat;
   int statCode = 0;
   String statName;
   public StatBar(int x, int y, int sc)
@@ -22,6 +22,16 @@ class StatBar extends Entities {
       Boss boss = world.getObjects(Boss.class).get(0);
       stat = boss.getHealth();
       statName = "Boss Health";
+    }
+    if (statCode == 3) {
+      Player player = world.getObjects(Player.class).get(0);
+      stat = player.getSkill1Timer() * (100.0/5);
+      statName = "Skill 1";
+    }
+    if (statCode == 4) {
+      Player player = world.getObjects(Player.class).get(0);
+      stat = player.getSkill2Timer() * (100.0/10);
+      statName = "Skill 2";
     }
   }
   

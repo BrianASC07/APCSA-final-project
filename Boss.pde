@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 class Boss extends Entities {
   boolean direction;
   int secTimer = second();
+  int atkTimer = second();
   int milliTimer = millis();
+  int atk;
 
   Boss(){
     super(width/2, 100, loadImage("boss.png"), 0.5, 100);
@@ -13,7 +15,12 @@ class Boss extends Entities {
   
   void act (float a) {
     move();
-    attack1();
+    if (second() > secTimer + 4 || second() < secTimer) {
+      secTimer = second();
+      atk = int(random(3));
+    }
+    handleAttack(atk);
+
   }
   
   void move() { 
@@ -26,21 +33,57 @@ class Boss extends Entities {
       direction = !direction;
     }
   }
-  void attack1(){
-    if (millis() != milliTimer) {
-      milliTimer = millis();
-      PVector mouse = new PVector(width/2,height/2);
+  void attack0(){
+    if (millis() / 300 % 10 != milliTimer) {
+      milliTimer = millis() / 300 % 10;
       int x = int(random(width));
-      int y = int(random(height));
-      EnemyBullet bullet1 = new EnemyBullet(x, 1, 10, mouse);
-      EnemyBullet bullet2 = new EnemyBullet(x, height - 1, 10, mouse);
-      EnemyBullet bullet3 = new EnemyBullet(1, y, 10, mouse);
-      EnemyBullet bullet4 = new EnemyBullet(width-1, y, 10, mouse);
+      EnemyBullet bullet = new EnemyBullet(x, 1, 1);
+      world.addObject(bullet);
+
+    }
+  }
+  void attack1(){
+    if (millis() / 600 % 10 != milliTimer) {
+      milliTimer = millis() / 600 % 10;
+      
+      int xSpawn = int(random(width));
+      int ySpawn = int(random(height));
+      float xDir = random(width/2 - 50, width/2 + 50);
+      float yDir = random(height/2 - 50, height/2 + 50);
+      
+      
+      EnemyBullet bullet1 = new EnemyBullet(xSpawn, 1, xDir, yDir, 1);
+      EnemyBullet bullet2 = new EnemyBullet(1, ySpawn, xDir, yDir, 1);
+      EnemyBullet bullet3 = new EnemyBullet(width-1, ySpawn, xDir, yDir, 1);
 
       world.addObject(bullet1);
-      world.addObject(bullet2);
       world.addObject(bullet3);
-      world.addObject(bullet4);
+      world.addObject(bullet2);
+    }
+  }
+  
+  void attack2(){
+    if (second() != secTimer) {
+      secTimer = second();
+
+      for (int i = -600; i <= 600; i += 200) {
+        EnemyBullet bullet1 = new EnemyBullet(int(getX()), int(getY()), getX() + i, float(height), 2);
+        world.addObject(bullet1);
+      }
+
+    }//second() != secTimer && second() != secTimer + 1
+  }
+  void handleAttack(int n){
+    switch(n){
+      case 0: 
+        attack0();
+        break;
+      case 1: 
+        attack1();
+        break;
+      case 2: 
+        attack2();
+        break;
     }
   }
 }
