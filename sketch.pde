@@ -10,9 +10,8 @@ Start start;
 void setup() {
   size(800, 800);
   green = new Green(this);
-  start = new Start(width, height);
+  start = new Start();
   world = new Space(width, height);
-  start = new Start(width, height);
 
   green.loadWorld(start);
 }

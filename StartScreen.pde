@@ -3,14 +3,9 @@ import java.util.*;
 
 class Start extends World {
   Green green;
-  int x = 0;
-  int y = 0;
-  int w = 300;
-  int h = 300;
-  
-  public Start(int w, int h)
+  public Start()
   {
-    super(w, h, 255);
+    super(height, width, loadImage("TitleScreen.png"), 1);
   }
   void act(float a){
 
@@ -20,7 +15,7 @@ class Start extends World {
   }
   void prepare(){ //equivalent to setup()
 
-    Button but = new Button();
+    Button but = new Button(150, 300, 200, 100, "Start", 160, 375);
     this.addObject(but);
   }
 }

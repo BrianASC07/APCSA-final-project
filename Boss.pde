@@ -21,8 +21,6 @@ class Boss extends Entities {
       secTimer = second();
       atk = int(random(3));
     }
-    System.out.println(second());
-    System.out.println(secTimer);
     handleAttack(atk);
 
   }
