@@ -2,15 +2,14 @@ import Green.*;
 import java.util.*;
 
 class SkillButton extends Button {
-  String text;
-  int textX;
-  int textY;
-  public SkillButton(int x, int y, int w, int h, String txt, int txtX, int txtY)
+  int skillCode;
+  String[] skills = {"Teleport","Speed Boost"};
+  String[] skillDesc = {"Teleport to the position of your mouse (cooldown: 15 seconds)","Gain a 5 second speed boost (cooldown: 30 seconds)"};
+
+  public SkillButton(int x, int y, int w, int h, String txt, int txtX, int txtY, int skill)
   {
     super(x, y, w, h, txt, txtX, txtY);
-    text = txt;
-    textX = txtX;
-    textY = txtY;
+    skillCode = skill;
   }
   
   void act(float a){
@@ -28,7 +27,7 @@ class SkillButton extends Button {
       rect(getX(), getY(), getWidth(), getHeight(), 28);
       textSize(80);
       fill(0);
-      text(text, textX, textY); 
+      text(skills[skillCode], textX, textY); 
 
   }
   boolean overRect(float x, float y, int w, int h)  { //weird scaling here //taken from 

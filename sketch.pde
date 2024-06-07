@@ -6,12 +6,15 @@ import java.util.*;
 Green green;
 Space world;
 Start start;
+SkillSelect skill;
 
 void setup() {
   size(800, 800);
   green = new Green(this);
   start = new Start();
   world = new Space(width, height);
+  skill = new SkillSelect();
+
 
   green.loadWorld(start);
 }

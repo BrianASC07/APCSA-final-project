@@ -22,7 +22,6 @@ class Boss extends Entities {
       atk = int(random(3));
     }
     handleAttack(atk);
-
   }
   
   void move() { 

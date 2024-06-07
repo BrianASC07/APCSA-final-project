@@ -37,10 +37,10 @@ class StatBar extends Entities {
   
   void draw(){
     fill(200);
-    rect(0,0,200,40);
+    rect(0,0,200,40, 7);
     getStat();
     fill(0, 255, 0);
-    rect(0,0,stat * 2,40);
+    rect(0,0,stat * 2,40, 7);
     textSize(30);
     fill(255);
     text(statName, 40, 30); 
