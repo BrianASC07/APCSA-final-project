@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 class Boss extends Entities {
   boolean direction;
   int secTimer = second();
+  int atk2Timer = second();
+
   int atkTimer = second();
   int milliTimer = millis();
   int atk;
@@ -19,6 +21,8 @@ class Boss extends Entities {
       secTimer = second();
       atk = int(random(3));
     }
+    System.out.println(second());
+    System.out.println(secTimer);
     handleAttack(atk);
 
   }
@@ -34,11 +38,12 @@ class Boss extends Entities {
     }
   }
   void attack0(){
+    Player player = world.getObjects(Player.class).get(0);
     if (millis() / 300 % 10 != milliTimer) {
       milliTimer = millis() / 300 % 10;
       int x = int(random(width));
-      float xDir = random(getX() - 50, getX() + 50);
-      float yDir = random(getY() - 50, getY() + 50);
+      float xDir = random(player.getX() - 50, player.getX() + 50);
+      float yDir = random(player.getY() - 50, player.getY() + 50);
       EnemyBullet bullet = new EnemyBullet(x, 1, xDir, yDir, 1);
       world.addObject(bullet);
 
@@ -65,8 +70,8 @@ class Boss extends Entities {
   }
   
   void attack2(){
-    if (second() != secTimer) {
-      secTimer = second();
+    if (second() != atk2Timer) {
+      atk2Timer = second();
 
       for (int i = -600; i <= 600; i += 200) {
         EnemyBullet bullet1 = new EnemyBullet(int(getX()), int(getY()), getX() + i, float(height), 2);

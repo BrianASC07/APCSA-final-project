@@ -14,7 +14,7 @@ void setup() {
   world = new Space(width, height);
   start = new Start(width, height);
 
-  green.loadWorld(world);
+  green.loadWorld(start);
 }
 
 void draw() {

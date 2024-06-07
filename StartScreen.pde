@@ -19,7 +19,8 @@ class Start extends World {
 
   }
   void prepare(){ //equivalent to setup()
-    Button start = new Button(width/2, height/2, 300,300);
-    this.addObject(start);
+
+    Button but = new Button();
+    this.addObject(but);
   }
 }
