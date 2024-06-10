@@ -1,21 +1,21 @@
 import Green.*;
 import java.util.*;
 
-class Start extends World {
+class StartScreen extends World {
   Green green;
-  public Start()
+  public StartScreen()
   {
-    super(height, width, loadImage("TitleScreen.png"), 1);
+    super(height, width, loadImage("assets/TitleScreen.png"), 1);
   }
   void act(float a){
 
   }
   void draw(){
-
+    
   }
   void prepare(){ //equivalent to setup()
 
-    SkillButton but = new SkillButton(150, 300, 200, 100, "Start", 160, 375, 0);
+    Button but = new Button(150, 300, 200, 100, "Start", 160, 375);
     this.addObject(but);
   }
 }

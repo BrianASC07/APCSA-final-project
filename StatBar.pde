@@ -14,22 +14,22 @@ class StatBar extends Entities {
   
   void getStat() {
     if (statCode == 1) {
-      Player player = world.getObjects(Player.class).get(0);
+      Player player = wrld.getObjects(Player.class).get(0);
       stat = player.getHealth();
       statName = "Health";
     }
     if (statCode == 2) {
-      Boss boss = world.getObjects(Boss.class).get(0);
+      Boss boss = wrld.getObjects(Boss.class).get(0);
       stat = boss.getHealth();
       statName = "Boss Health";
     }
     if (statCode == 3) {
-      Player player = world.getObjects(Player.class).get(0);
+      Player player = wrld.getObjects(Player.class).get(0);
       stat = player.getSkill1Timer() * (100.0/5);
       statName = "Skill 1";
     }
     if (statCode == 4) {
-      Player player = world.getObjects(Player.class).get(0);
+      Player player = wrld.getObjects(Player.class).get(0);
       stat = player.getSkill2Timer() * (100.0/10);
       statName = "Skill 2";
     }

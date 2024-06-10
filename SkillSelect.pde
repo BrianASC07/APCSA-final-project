@@ -14,7 +14,6 @@ class SkillSelect extends World {
 
   }
   void prepare(){ //equivalent to setup()
-    Button but = new Button(150, 300, 200, 100, "Start", 160, 375);
-    this.addObject(but);
+
   }
 }

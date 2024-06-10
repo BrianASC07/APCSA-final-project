@@ -6,17 +6,18 @@ class Player extends Entities {
   int speed = 0;
   int shield = 0;
   int atkTimer = second();
-  int timer1 = second();
+  int timer1 = frameCount;
   int timer2 = second();
   int timer3 = second();
 
-  int skill1Timer = 0;
-  int skill2Timer = 0;
-  int skill2Duration = 0;
+  int skill1Timer = frameCount;
+  int skill2Timer = frameCount;
+  int skill2Duration = frameCount;
   boolean skill2Enabled = false;
+  
 
   Player(){
-    super(width/2, height/2, loadImage("ship.png"), 0.15, 100);
+    super(width/2, height/2, loadImage("assets/ship.png"), 0.15, 100);
   }
   
   void act (float a) {
@@ -24,6 +25,8 @@ class Player extends Entities {
     move();
     skill1();
     skill2();
+    endGame();
+    System.out.println(skill1Timer);
   }
   
   void move() { // moves the character using wasd
@@ -45,7 +48,7 @@ class Player extends Entities {
     if (second() != atkTimer) {
       atkTimer = second();
       PlayerBullet bullet = new PlayerBullet(getX(), getY());
-      world.addObject(bullet);
+      wrld.addObject(bullet);
     }
   }
   
@@ -58,8 +61,8 @@ class Player extends Entities {
       }
     }
     else {
-      if (timer1 != second()) {
-        timer1 = second();
+      if (frameCount >= atk7Timer + 120) {
+        timer1 = frameCount;
         skill1Timer++;
       }
     }
@@ -68,8 +71,8 @@ class Player extends Entities {
   void skill2() { //kinda a mess right now
     if (skill2Timer == 10) {
       if (skill2Enabled) {
-        if (timer3 != second()) {
-          timer3 = second();
+        if (timer3 + 60 <= frameCount) {
+          timer3 = frameCount;
           skill2Duration++;
         }
         if (skill2Duration == 5) {
@@ -84,13 +87,23 @@ class Player extends Entities {
       }
     }
     else {
-      if (timer2 != second()) {
-        timer2 = second();
+      if (timer2  + 60 <= frameCount) {
+        timer2 = frameCount;
         skill2Timer++;
       }
     }
   }
-  
+  void endGame() {
+    if (this.getHealth() == 0) {
+      Boss boss = wrld.getObjects(Boss.class).get(0);
+      wrld.removeObject(this);
+      wrld.removeObject(boss);
+
+      end.setVictoryStatus("lost");
+      green.loadWorld(end);
+      applyDamage(-100);
+    }
+  }
   int getSkill1Timer() {
     return skill1Timer;
   }

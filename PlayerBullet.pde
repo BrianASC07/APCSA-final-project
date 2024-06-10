@@ -3,10 +3,10 @@ import java.util.*;
 
 class PlayerBullet extends Entities {
   
-  Boss boss = world.getObjects(Boss.class).get(0);
+  Boss boss = wrld.getObjects(Boss.class).get(0);
 
   PlayerBullet(float x, float y){
-    super(x, y, loadImage("playerbullet.png"), 0.1);
+    super(x, y, loadImage("assets/playerbullet.png"), 0.1);
   }
   
   void act (float a) {
@@ -15,11 +15,11 @@ class PlayerBullet extends Entities {
   
   void move() { 
     if (getY() <= 0) {
-      world.removeObject(this);
+      wrld.removeObject(this);
     }
     if (this.intersects(boss)) {
-        world.removeObject(this);
-        boss.applyDamage(1);
+        wrld.removeObject(this);
+        boss.applyDamage(2);
     }
     moveGlobal(0, -4);
   }

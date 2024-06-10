@@ -1,20 +1,23 @@
-import Green.*;
+import processing.sound.*;
 
 import Green.*;
+
+
 import java.util.*;
 
 Green green;
-Space world;
-Start start;
+Space wrld;
+StartScreen start;
+EndScreen end;
 SkillSelect skill;
 
 void setup() {
   size(800, 800);
   green = new Green(this);
-  start = new Start();
-  world = new Space(width, height);
+  start = new StartScreen();
+  wrld = new Space(width, height);
   skill = new SkillSelect();
-
+  end = new EndScreen();
 
   green.loadWorld(start);
 }

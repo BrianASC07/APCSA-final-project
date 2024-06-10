@@ -1,21 +1,20 @@
 import Green.*;
 import java.util.*;
 
-class Button extends Actor {
-  String text;
-  int textX;
-  int textY;
+class Button extends TextBox {
+
   public Button(int x, int y, int w, int h, String txt, int txtX, int txtY)
   {
-    super(x, y, w, h);
-    text = txt;
-    textX = txtX;
-    textY = txtY;
+    super(x, y, w, h, txt, txtX, txtY);
+
   }
   
   void act(float a){
-    if (green.isMouseButtonDown(LEFT) && overRect(getX(), getY(), getWidth(), getHeight())) { //
-      green.loadWorld(world);
+    if (green.isMouseButtonDown(LEFT) && overRect(getX(), getY(), getWidth(), getHeight()) && text.equals("Start")) { //
+      green.loadWorld(wrld);
+    }
+    else if (green.isMouseButtonDown(LEFT) && overRect(getX(), getY(), getWidth(), getHeight()) && text.equals("Return")) { //
+      green.loadWorld(start);
     }
   }
   void draw(){
