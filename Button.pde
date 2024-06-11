@@ -11,7 +11,7 @@ class Button extends TextBox {
   
   void act(float a){
     if (green.isMouseButtonDown(LEFT) && overRect(getX(), getY(), getWidth(), getHeight()) && text.equals("Start")) { //
-      green.loadWorld(wrld);
+      green.loadWorld(skill);
     }
     else if (green.isMouseButtonDown(LEFT) && overRect(getX(), getY(), getWidth(), getHeight()) && text.equals("Return")) { //
       green.loadWorld(start);

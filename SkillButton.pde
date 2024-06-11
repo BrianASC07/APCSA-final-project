@@ -3,8 +3,7 @@ import java.util.*;
 
 class SkillButton extends Button {
   int skillCode;
-  String[] skills = {"Teleport","Speed Boost"};
-  String[] skillDesc = {"Teleport to the position of your mouse (cooldown: 15 seconds)","Gain a 5 second speed boost (cooldown: 30 seconds)"};
+
 
   public SkillButton(int x, int y, int w, int h, String txt, int txtX, int txtY, int txtSize, int skill)
   {
@@ -12,9 +11,11 @@ class SkillButton extends Button {
     skillCode = skill;
   }
   
-  void act(float a){
+  void act(float a){    
     if (green.isMouseButtonDown(LEFT) && overRect(getX(), getY(), getWidth(), getHeight())) { //
-      //green.loadWorld(skill);
+      green.loadWorld(wrld);
+      Skill selectedSkill = new Skill(skillCode);
+      wrld.addObject(selectedSkill);
     }
   }
   void draw(){
@@ -25,10 +26,12 @@ class SkillButton extends Button {
         fill(255);
       }
       rect(getX(), getY(), getWidth(), getHeight(), 28);
-      textSize(80);
+      textSize(textSize);
       fill(0);
-      text(skills[skillCode], textX, textY); 
-
+      text(text, textX, textY); 
+  }
+  int getSkillCode() {
+    return skillCode;
   }
 
 }

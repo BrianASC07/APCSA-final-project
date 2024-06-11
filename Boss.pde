@@ -115,8 +115,8 @@ class Boss extends Entities {
   
   void attack5(){
     move();
-    if (millis() / 300 % 10 != atk5Timer) {
-      atk5Timer = millis() / 300 % 10;
+    if (millis() / 500 % 10 != atk5Timer) {
+      atk5Timer = millis() / 500 % 10;
       int xSpawn = int(random(width));
       float xDir = random(0, width);
       float yDir = random(0, height);

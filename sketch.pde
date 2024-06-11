@@ -19,7 +19,7 @@ void setup() {
   skill = new SkillSelect();
   end = new EndScreen();
 
-  green.loadWorld(skill);
+  green.loadWorld(start);
 }
 
 void draw() {

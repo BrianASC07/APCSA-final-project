@@ -4,9 +4,10 @@ import java.util.*;
 class PlayerBullet extends Entities {
   
   Boss boss = wrld.getObjects(Boss.class).get(0);
-
-  PlayerBullet(float x, float y){
+  int damage;
+  PlayerBullet(float x, float y, int dmg){
     super(x, y, loadImage("assets/playerbullet.png"), 0.1);
+    damage = dmg;
   }
   
   void act (float a) {
@@ -19,12 +20,8 @@ class PlayerBullet extends Entities {
     }
     if (this.intersects(boss)) {
         wrld.removeObject(this);
-        boss.applyDamage(2);
+        boss.applyDamage(damage);
     }
     moveGlobal(0, -4);
-  }
-
-  void applyDamage(int damage){
-    health -= damage;
   }
 }
