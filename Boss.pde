@@ -4,7 +4,10 @@ import java.util.concurrent.TimeUnit;
 
 class Boss extends Entities {
   boolean direction;
-  int secTimer = second();
+  int atkDurationTimer = second();
+  
+  int atk0Timer = second();
+  int atk1Timer = millis();
   int atk2Timer = second();
   int atk3Timer = second();
   int atk4Timer = second();
@@ -13,8 +16,7 @@ class Boss extends Entities {
   int atk8Timer = frameCount;
   int atk11Timer = frameCount;
 
-  int atkTimer = second();
-  int milliTimer = millis();
+
   int atk1;
   int atk2;
   int atk3;
@@ -25,8 +27,8 @@ class Boss extends Entities {
   }
   
   void act (float a) {
-    if (second() > secTimer + 4 || second() < secTimer) {
-      secTimer = second();
+    if (second() > atkDurationTimer + 4 || second() < atkDurationTimer) {
+      atkDurationTimer = second();
       atk1 = int(random(5));
       atk2 = int(random(10));
       atk3 = int(random(6));
@@ -49,8 +51,8 @@ class Boss extends Entities {
     move();
     Player player = wrld.getObjects(Player.class).get(0);
 
-    if (millis() / 300 % 10 != milliTimer) {
-      milliTimer = millis() / 300 % 10;
+    if (millis() / 300 % 10 != atk0Timer) {
+      atk0Timer = millis() / 300 % 10;
       int x = int(random(width));
       float xDir = random(player.getX() - 50, player.getX() + 50);
       float yDir = random(player.getY() - 50, player.getY() + 50);
@@ -60,8 +62,8 @@ class Boss extends Entities {
   }
   void attack1(){
     move();
-    if (millis() / 600 % 10 != milliTimer) {
-      milliTimer = millis() / 600 % 10;
+    if (millis() / 600 % 10 != atk1Timer) {
+      atk1Timer = millis() / 600 % 10;
       
       int xSpawn = int(random(width));
       int ySpawn = int(random(height));
