@@ -10,9 +10,9 @@ class Player extends Entities {
   int timer2 = second();
   int timer3 = second();
 
-  int skill1Timer = frameCount;
-  int skill2Timer = frameCount;
-  int skill2Duration = frameCount;
+  int skill1Timer;
+  int skill2Timer;
+  int skill2Duration;
   boolean skill2Enabled = false;
   
 
@@ -26,7 +26,6 @@ class Player extends Entities {
     skill1();
     skill2();
     endGame();
-    System.out.println(skill1Timer);
   }
   
   void move() { // moves the character using wasd
@@ -61,7 +60,7 @@ class Player extends Entities {
       }
     }
     else {
-      if (frameCount >= atk7Timer + 120) {
+      if (frameCount >= timer1 + 60) {
         timer1 = frameCount;
         skill1Timer++;
       }
@@ -77,6 +76,7 @@ class Player extends Entities {
         }
         if (skill2Duration == 5) {
           skill2Timer = 0;
+          skill2Duration = 0;
           skill2Enabled = false;
           speed -= 5;
         }

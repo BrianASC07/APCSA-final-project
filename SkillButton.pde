@@ -6,9 +6,9 @@ class SkillButton extends Button {
   String[] skills = {"Teleport","Speed Boost"};
   String[] skillDesc = {"Teleport to the position of your mouse (cooldown: 15 seconds)","Gain a 5 second speed boost (cooldown: 30 seconds)"};
 
-  public SkillButton(int x, int y, int w, int h, String txt, int txtX, int txtY, int skill)
+  public SkillButton(int x, int y, int w, int h, String txt, int txtX, int txtY, int txtSize, int skill)
   {
-    super(x, y, w, h, txt, txtX, txtY);
+    super(x, y, w, h, txt, txtX, txtY,txtSize);
     skillCode = skill;
   }
   
@@ -30,13 +30,5 @@ class SkillButton extends Button {
       text(skills[skillCode], textX, textY); 
 
   }
-  boolean overRect(float x, float y, int w, int h)  { //weird scaling here //taken from 
-  if (mouseX/2 >= x && mouseX/2 <= x+ (w/2) && 
-      mouseY/2 >= y && mouseY/2 <= y+(h/2)) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 }

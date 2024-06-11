@@ -22,9 +22,10 @@ class EndScreen extends World {
     victoryStatus = txt;
   }
   void prepare(){ //equivalent to setup()
-    Button but = new Button(150, 350, 250, 100, "Return", 160, 425);
+    Button but = new Button(150, 350, 250, 100, "Return", 160, 425,80);
     this.addObject(but);
-    TextBox but1 = new TextBox(140, 250, 310, 100, "You " + victoryStatus + "!", 150, 330);
+    TextBox but1 = new TextBox(140, 250, 310, 100, "You " + victoryStatus + "!", 150, 330,80);
     this.addObject(but1);
+        this.addObject(but1);
   }
 }

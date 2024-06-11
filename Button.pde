@@ -3,9 +3,9 @@ import java.util.*;
 
 class Button extends TextBox {
 
-  public Button(int x, int y, int w, int h, String txt, int txtX, int txtY)
+  public Button(int x, int y, int w, int h, String txt, int txtX, int txtY, int txtSize)
   {
-    super(x, y, w, h, txt, txtX, txtY);
+    super(x, y, w, h, txt, txtX, txtY,txtSize);
 
   }
   

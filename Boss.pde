@@ -127,8 +127,8 @@ class Boss extends Entities {
   void attack6(){
     move();
     Player player = wrld.getObjects(Player.class).get(0);
-    if (millis() / 600 % 10 != atk5Timer) {
-      atk5Timer = millis() / 600 % 10;
+    if (millis() / 800 % 10 != atk5Timer) {
+      atk5Timer = millis() / 800 % 10;
       int xSpawn = int(random(width));
       EnemyLaser bullet1 = new EnemyLaser(xSpawn, 0, player.getX(), player.getY(), 3);
       wrld.addObject(bullet1);

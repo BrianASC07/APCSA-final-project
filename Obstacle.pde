@@ -1,5 +1,6 @@
 import Green.*;
 import java.util.*;
+import processing.sound.*;
 
 class Obstacle extends Actor {
   int damage;
@@ -39,6 +40,25 @@ class Obstacle extends Actor {
     }
     if (this.intersects(player)) {
         wrld.removeObject(this);
+        player.applyDamage(damage);
+    }
+  }
+  void handleDamage(SoundFile file){
+    if (getY() <= 0) {
+      wrld.removeObject(this);
+    }
+    if (getY() >= height) {
+      wrld.removeObject(this);
+    }
+    if (getX() >= width) {
+      wrld.removeObject(this);
+    }
+    if (getX() <= 0) {
+      wrld.removeObject(this);
+    }
+    if (this.intersects(player)) {
+        wrld.removeObject(this);
+        file.play();
         player.applyDamage(damage);
     }
   }

@@ -5,12 +5,14 @@ class TextBox extends Actor {
   String text;
   int textX;
   int textY;
-  public TextBox(int x, int y, int w, int h, String txt, int txtX, int txtY)
+  int textSize;
+  public TextBox(int x, int y, int w, int h, String txt, int txtX, int txtY, int txtSize)
   {
     super(x, y, w, h);
     text = txt;
     textX = txtX;
     textY = txtY;
+    textSize = txtSize;
   }
   
   void act(float a){
@@ -20,7 +22,7 @@ class TextBox extends Actor {
       stroke(0);
       fill(255);
       rect(getX(), getY(), getWidth(), getHeight(), 28);
-      textSize(80);
+      textSize(textSize);
       fill(0);
       text(text, textX, textY); 
 
