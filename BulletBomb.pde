@@ -7,6 +7,8 @@ class BulletBomb extends Obstacle {
   int timer = second();
   SoundFile file = new SoundFile(sketch.this, "assets/bombexplosion.wav");
 
+  int[][] directions = {{width, 0}, {-width, 0}, {0, height}, {0, -height}, {width, height}, {-width, height}, {-width, -height}, {width, -height}};
+  
   BulletBomb(int x, int y, float xDir, float yDir, float speed){
     super(x,y,loadImage("assets/bomb.png"),1.25,20, speed);
     this.turnTowards(xDir, yDir);
@@ -19,28 +21,13 @@ class BulletBomb extends Obstacle {
     }
     if (getSpeed() > 0) {
       move();
-    } else { //this is too much
+    } else {
       wrld.removeObject(this);
       file.play();
-      EnemyBullet bullet1 = new EnemyBullet(int(getX()), int(getY()), getX() + width, getY(),2);
-      EnemyBullet bullet2 = new EnemyBullet(int(getX()), int(getY()), getX() - width, getY(),2);
-      EnemyBullet bullet3 = new EnemyBullet(int(getX()), int(getY()), getX(), getY() + height,2);
-      EnemyBullet bullet4 = new EnemyBullet(int(getX()), int(getY()), getX(), getY() - height,2);
-      
-      EnemyBullet bullet5 = new EnemyBullet(int(getX()), int(getY()), getX() + width, getY() + height,2);
-      EnemyBullet bullet6 = new EnemyBullet(int(getX()), int(getY()), getX() - width, getY() + height,2);
-      EnemyBullet bullet7 = new EnemyBullet(int(getX()), int(getY()), getX() - width, getY() - height,2);
-      EnemyBullet bullet8 = new EnemyBullet(int(getX()), int(getY()), getX() + width, getY() - height,2);
-
-      
-      wrld.addObject(bullet1);
-      wrld.addObject(bullet2);
-      wrld.addObject(bullet3);
-      wrld.addObject(bullet4);
-      wrld.addObject(bullet5);
-      wrld.addObject(bullet6);
-      wrld.addObject(bullet7);
-      wrld.addObject(bullet8);
+      for (int[] direction : directions) {
+          EnemyBullet bullet = new EnemyBullet(int(getX()), int(getY()), getX() + direction[0], getY() + direction[1], 2);
+          wrld.addObject(bullet);
+      }
     }
     handleDamage();
   }

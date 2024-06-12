@@ -23,9 +23,9 @@ class Space extends World {
     
     StatBar health = new StatBar(0,0,1);
     StatBar bossHealth = new StatBar(width-200,0,2);
-    StatBar skill1Timer = new StatBar(0,50,3);
-    StatBar skill2Timer = new StatBar(0,100,4);
-
+    StatBar skill1Timer = new StatBar(0,100,3);
+    StatBar skill2Timer = new StatBar(0,150,4);
+    TextBox playerClass = new TextBox(0, 25, 200, 40, "Class: " + player.getPlayerClass(), 2, 55, 30);
 
 
 
@@ -34,6 +34,7 @@ class Space extends World {
 
     this.addObject(health);
     this.addObject(bossHealth);
+    this.addObject(playerClass);
     this.addObject(skill1Timer);
     this.addObject(skill2Timer);
 

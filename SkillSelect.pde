@@ -21,7 +21,7 @@ class SkillSelect extends World {
     TextBox heading = new TextBox(150, 10, 225, 50, "Class Select", 160, 45, 40);
     this.addObject(heading);
     
-    SkillButton class1 = new SkillButton(150, 50, 225, 50, "Evader", 205, 90, 40, 0);
+    TextBox class1 = new SkillButton(150, 50, 225, 50, "Evader", 205, 90, 40, 0);
     this.addObject(class1);
 
     TextBox skill1 = new TextBox(50, 80, 225, 50, "Teleport", 90, 120, 40);
@@ -34,7 +34,7 @@ class SkillSelect extends World {
     TextBox skill2Desc = new TextBox(260, 110, 260, 80, "Press q to activate: \nGain a speed boost for 5 seconds \n(Cooldown: 10s)", 270, 135, 15);
     this.addObject(skill2Desc);
     
-    SkillButton class2 = new SkillButton(150, 160, 225, 50, "Survivor", 190, 200, 40, 1);
+    TextBox class2 = new SkillButton(150, 160, 225, 50, "Survivor", 190, 200, 40, 1);
     this.addObject(class2);
 
     TextBox skill3 = new TextBox(50, 190, 225, 50, "Invincibility", 65, 230, 40);
@@ -45,7 +45,7 @@ class SkillSelect extends World {
     TextBox skill4 = new TextBox(260, 190, 225, 50, "Heal", 330, 230, 40);
     this.addObject(skill4);
     
-    SkillButton class3 = new SkillButton(150, 270, 225, 50, "Brawler", 195, 310, 40, 2);
+    TextBox class3 = new SkillButton(150, 270, 225, 50, "Brawler", 195, 310, 40, 2);
     this.addObject(class3);
     TextBox skill5 = new TextBox(50, 300, 225, 50, "Attack Speed Boost", 65, 335, 25);
     this.addObject(skill5);

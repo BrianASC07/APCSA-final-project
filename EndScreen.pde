@@ -8,7 +8,6 @@ class EndScreen extends World {
   public EndScreen()
   {
     super(height, width, loadImage("assets/endscreen.png"), 1);
-
   }
   void act(float a){
     textSize(80);

@@ -237,8 +237,12 @@ class Boss extends Entities {
   void endGame() {
     if (this.getHealth() == 0) {
       Player player = wrld.getObjects(Player.class).get(0);
+      Skill skill = wrld.getObjects(Skill.class).get(0);
+
       wrld.removeObject(this);
       wrld.removeObject(player);
+      wrld.removeObject(skill);
+
 
       end.setVictoryStatus("won");
       green.loadWorld(end);

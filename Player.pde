@@ -49,8 +49,12 @@ class Player extends Entities {
   void endGame() {
     if (this.getHealth() == 0) {
       Boss boss = wrld.getObjects(Boss.class).get(0);
+      skill = wrld.getObjects(Skill.class).get(0);
+
       wrld.removeObject(this);
       wrld.removeObject(boss);
+      wrld.removeObject(skill);
+
 
       end.setVictoryStatus("lost");
       green.loadWorld(end);
@@ -75,11 +79,15 @@ class Player extends Entities {
   
   int getSkill1Timer() {
     skill = wrld.getObjects(Skill.class).get(0);
-    return skill.getSkill1Timer();
+    return skill.getSkill1Cooldown();
   }
   int getSkill2Timer() {
     skill = wrld.getObjects(Skill.class).get(0);    
-    return skill.getSkill2Timer();
+    return skill.getSkill1Cooldown();
+  }
+  String getPlayerClass(){
+    skill = wrld.getObjects(Skill.class).get(0);
+    return skill.getPlayerClass();
   }
   
   void applyDamage(int damage){

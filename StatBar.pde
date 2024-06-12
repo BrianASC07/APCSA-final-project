@@ -24,13 +24,13 @@ class StatBar extends Entities {
       statName = "Boss Health";
     }
     if (statCode == 3) {
-      Player player = wrld.getObjects(Player.class).get(0);
-      stat = player.getSkill1Timer() * (100.0/5);
+      Skill skill = wrld.getObjects(Skill.class).get(0);
+      stat = skill.getSkill1Cooldown() * (100.0/skill.getSkill1MaxCooldown());
       statName = "Skill 1";
     }
     if (statCode == 4) {
-      Player player = wrld.getObjects(Player.class).get(0);
-      stat = player.getSkill2Timer() * (100.0/10);
+      Skill skill = wrld.getObjects(Skill.class).get(0);
+      stat = skill.getSkill2Cooldown() * (100.0/skill.getSkill2MaxCooldown());
       statName = "Skill 2";
     }
   }

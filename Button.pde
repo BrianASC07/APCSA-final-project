@@ -6,7 +6,6 @@ class Button extends TextBox {
   public Button(int x, int y, int w, int h, String txt, int txtX, int txtY, int txtSize)
   {
     super(x, y, w, h, txt, txtX, txtY,txtSize);
-
   }
   
   void act(float a){
@@ -30,7 +29,7 @@ class Button extends TextBox {
       text(text, textX, textY); 
 
   }
-  boolean overRect(float x, float y, int w, int h)  { //weird scaling here //taken from 
+  boolean overRect(float x, float y, int w, int h)  {  //taken from 
   if (mouseX/2 >= x && mouseX/2 <= x+ (w/2) && 
       mouseY/2 >= y && mouseY/2 <= y+(h/2)) {
     return true;

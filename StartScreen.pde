@@ -15,7 +15,7 @@ class StartScreen extends World {
   }
   void prepare(){ //equivalent to setup()
 
-    Button but = new Button(150, 300, 200, 100, "Start", 160, 375,80);
-    this.addObject(but);
+    TextBox button = new Button(150, 300, 200, 100, "Start", 160, 375,80);
+    this.addObject(button);
   }
 }
