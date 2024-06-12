@@ -21,7 +21,7 @@ class StatBar extends Entities {
     if (statCode == 2) {
       Boss boss = wrld.getObjects(Boss.class).get(0);
       stat = boss.getHealth();
-      statName = "Boss Health";
+      statName = "Boss Health"; 
     }
     if (statCode == 3) {
       Skill skill = wrld.getObjects(Skill.class).get(0);

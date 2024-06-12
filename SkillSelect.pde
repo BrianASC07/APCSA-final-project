@@ -26,7 +26,7 @@ class SkillSelect extends World {
 
     TextBox skill1 = new TextBox(50, 80, 225, 50, "Teleport", 90, 120, 40);
     this.addObject(skill1);
-    TextBox skill1Desc = new TextBox(50, 110, 260, 80, "Press e to activate: \nTeleport to the location of your cursor \n(Cooldown: 5s)", 60, 135, 15);
+    TextBox skill1Desc = new TextBox(50, 110, 260, 80, "Press e to activate: \nTeleport to the location of your cursor \n(Cooldown: 7s)", 60, 135, 15);
     this.addObject(skill1Desc);
     
     TextBox skill2 = new TextBox(260, 80, 225, 50, "Speed Boost", 265, 120, 40);
@@ -39,19 +39,25 @@ class SkillSelect extends World {
 
     TextBox skill3 = new TextBox(50, 190, 225, 50, "Invincibility", 65, 230, 40);
     this.addObject(skill3);
-    TextBox skill3Desc = new TextBox(50, 220, 260, 80, "Press e to activate: \nBecome invincible for 3 seconds \n(Cooldown: 5s)", 60, 245, 15);
+    TextBox skill3Desc = new TextBox(50, 220, 260, 80, "Press e to activate: \nBecome invincible for 3 seconds \n(Cooldown: 6s)", 60, 245, 15);
     this.addObject(skill3Desc);
     
     TextBox skill4 = new TextBox(260, 190, 225, 50, "Heal", 330, 230, 40);
     this.addObject(skill4);
-    
+    TextBox skill4Desc = new TextBox(260, 220, 260, 80, "Press q to activate: \nHeal 10 Health \n(Cooldown: 10s)", 270, 245, 15);
+    this.addObject(skill4Desc);
+
     TextBox class3 = new SkillButton(150, 270, 225, 50, "Brawler", 195, 310, 40, 2);
     this.addObject(class3);
     TextBox skill5 = new TextBox(50, 300, 225, 50, "Attack Speed Boost", 65, 335, 25);
     this.addObject(skill5);
+    TextBox skill5Desc = new TextBox(50, 330, 260, 80, "Press e to activate: \nDouble your attack speed for 4 seconds \n(Cooldown: 5s)", 60, 355, 15);
+    this.addObject(skill5Desc);
     
     TextBox skill6 = new TextBox(260, 300, 225, 50, "Wrath", 325, 340, 40); // minus speed and take damage but triple the amount of damage u deal
     this.addObject(skill6);
+    TextBox skill6Desc = new TextBox(260, 330, 260, 80, "Press q to activate: \nTake 10 damage but deal triple damage \nfor 4 seconds \n(Cooldown: 7s)", 270, 350, 15);
+    this.addObject(skill6Desc);
     
   }
 }
