@@ -21,13 +21,13 @@ class SkillButton extends Button {
   void draw(){
       stroke(0);
       if (overRect(getX(), getY(), getWidth(), getHeight())) {
-        fill(200);
+        fill(100);
       } else {
-        fill(255);
+        fill(150);
       }
       rect(getX(), getY(), getWidth(), getHeight(), 28);
       textSize(textSize);
-      fill(0);
+      fill(255);
       text(text, textX, textY); 
   }
   int getSkillCode() {
